@@ -1,7 +1,7 @@
 # Create an dnsmasq dhcp boot (PXE) record for customizing network
 # booting (--dhcp-boot).
-define dnsmasq::dhcpboot (
-  $file,
+class dnsmasq::dhcpboot (
+  $file  = undef,
   $tag   = undef,
   $hostname   = undef,
   $bootserver = undef,
