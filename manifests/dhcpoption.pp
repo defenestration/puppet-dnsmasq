@@ -8,7 +8,7 @@ class dnsmasq::dhcpoption (
 
   include dnsmasq
   if $hash != undef {
-    hash.each | $option, $content  | {
+    hash.each | String $option, String $content  | {
       concat::fragment { "dnsmasq-dhcpoption-${option}":
         order   => '03',
         target  => 'dnsmasq.conf',
