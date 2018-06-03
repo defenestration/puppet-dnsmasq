@@ -6,6 +6,7 @@ class dnsmasq::dhcpoption (
   $tag = undef,
 ) {
 
+  include dnsmasq
   if $hash != undef {
     hash.each | $option, $content  | {
       concat::fragment { "dnsmasq-dhcpoption-${option}":
@@ -15,17 +16,16 @@ class dnsmasq::dhcpoption (
       }
     }
   }
-  $tag_real = $tag ? {
-    undef   => '',
-    default => "tag:${tag},",
-  }
+  # $tag_real = $tag ? {
+  #   undef   => '',
+  #   default => "tag:${tag},",
+  # }
 
-  include dnsmasq
 
-  concat::fragment { "dnsmasq-dhcpoption-${option}":
-    order   => '03',
-    target  => 'dnsmasq.conf',
-    content => template('dnsmasq/dhcpoption.erb'),
-  }
+  # concat::fragment { "dnsmasq-dhcpoption-${option}":
+  #   order   => '03',
+  #   target  => 'dnsmasq.conf',
+  #   content => template('dnsmasq/dhcpoption.erb'),
+  # }
 
 }
