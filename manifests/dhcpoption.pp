@@ -27,7 +27,5 @@ class dnsmasq::dhcpoption (
     target  => 'dnsmasq.conf',
     content => template('dnsmasq/dhcpoption.erb'),
   }
-    content => template('dnsmasq/dhcpoption.erb'),
-  }
 
 }
