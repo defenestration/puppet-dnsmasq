@@ -6,7 +6,7 @@ class dnsmasq::dhcpoption (
   $tag = undef,
 ) {
 
-  if not $hash = undef {
+  if $hash != undef {
     hash.each | $option, $content  | {
       concat::fragment { "dnsmasq-dhcpoption-${option}":
         order   => '03',
