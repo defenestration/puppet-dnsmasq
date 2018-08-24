@@ -1,6 +1,6 @@
 # Create an dnsmasq stub zone for caching upstream name resolvers
 # (--dhcp-host).
-define dnsmasq::dhcpstatic (
+class dnsmasq::dhcpstatic (
   $mac,
   $ip,
 ) {
